@@ -200,29 +200,45 @@ function Chatbot() {
   const messagesEndRef = useRef(null)
   const inputRef = useRef(null)
 
+  // Check if tooltip was permanently dismissed on component mount
+  useEffect(() => {
+    const tooltipDismissedPermanently = localStorage.getItem('chatbotTooltipDismissed')
+    if (tooltipDismissedPermanently) {
+      setTooltipDismissed(true)
+    }
+  }, [])
+
   // Show tooltip after user has been on page for a few seconds
   useEffect(() => {
-    const tooltipShown = sessionStorage.getItem('chatbotTooltipShown')
-    if (!tooltipShown && !tooltipDismissed) {
+    const tooltipDismissedPermanently = localStorage.getItem('chatbotTooltipDismissed')
+    if (!tooltipDismissedPermanently && !isOpen) {
       const timer = setTimeout(() => {
         setShowTooltip(true)
-        sessionStorage.setItem('chatbotTooltipShown', 'true')
-      }, 3000) // Show after 3 seconds
+      }, 2000) // Show after 2 seconds (faster)
 
       return () => clearTimeout(timer)
     }
-  }, [tooltipDismissed])
+  }, [isOpen])
 
-  // Hide tooltip when chat is opened
+  // Hide tooltip when chat is opened, re-show when closed (unless permanently dismissed)
   useEffect(() => {
+    const tooltipDismissedPermanently = localStorage.getItem('chatbotTooltipDismissed')
     if (isOpen) {
       setShowTooltip(false)
+    } else if (!tooltipDismissedPermanently) {
+      // Re-show tooltip after chat closes (with a small delay)
+      const timer = setTimeout(() => {
+        setShowTooltip(true)
+      }, 1000)
+      return () => clearTimeout(timer)
     }
   }, [isOpen])
 
   const handleDismissTooltip = () => {
     setShowTooltip(false)
     setTooltipDismissed(true)
+    // Save to localStorage so it won't show again even after page refresh
+    localStorage.setItem('chatbotTooltipDismissed', 'true')
   }
 
   const scrollToBottom = () => {

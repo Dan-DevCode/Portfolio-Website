@@ -66,7 +66,7 @@ function Contact() {
                   whileHover={{ scale: 1.02, x: 5 }}
                 >
                   <div className="p-3 bg-accent/10 dark:bg-accent/20 rounded-lg group-hover:bg-accent transition-colors">
-                    <Icon className="w-6 h-6 text-accent" />
+                    <Icon className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-1">
                     <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">

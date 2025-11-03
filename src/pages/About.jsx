@@ -40,15 +40,15 @@ function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-16 text-center"
         >
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-balance">
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-balance max-w-3xl mx-auto">
             I'm an AI Engineer passionate about leveraging artificial intelligence and technology to solve complex problems and drive innovation. My work focuses on building intelligent systems that make a meaningful impact.
           </p>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-balance">
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-balance max-w-3xl mx-auto">
             Beyond engineering, I'm deeply passionate about innovation, business strategy, investments, stocks, and finance. I believe in the power of technology to transform industries and create value. I'm constantly exploring the intersection of AI, business, and finance to identify opportunities and drive growth.
           </p>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed text-balance">
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed text-balance max-w-3xl mx-auto">
             When I'm not building AI solutions, you'll find me analyzing market trends, exploring innovative business models, or diving deep into the latest developments in finance and technology.
           </p>
         </motion.div>
@@ -61,8 +61,8 @@ function About() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-6">Skills</h3>
-          <div className="flex flex-wrap gap-3">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">Skills</h3>
+          <div className="flex flex-wrap gap-3 justify-center">
             {skills.map((skill, index) => (
               <motion.span
                 key={skill}
@@ -90,17 +90,17 @@ function About() {
           }
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-6">Interests & Passions</h3>
-          <div className="space-y-4">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">Interests & Passions</h3>
+          <div className="space-y-4 max-w-3xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={
                 timelineInView
-                  ? { opacity: 1, x: 0 }
-                  : { opacity: 0, x: -20 }
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 20 }
               }
               transition={{ delay: 0, duration: 0.5 }}
-              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-accent/30 dark:hover:border-accent/30 transition-all hover:shadow-lg"
+              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-accent/30 dark:hover:border-accent/30 transition-all hover:shadow-lg text-center"
             >
               <h4 className="text-xl font-semibold mb-2 text-accent">🤖 AI & Innovation</h4>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -108,14 +108,14 @@ function About() {
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={
                 timelineInView
-                  ? { opacity: 1, x: 0 }
-                  : { opacity: 0, x: -20 }
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 20 }
               }
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-accent/30 dark:hover:border-accent/30 transition-all hover:shadow-lg"
+              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-accent/30 dark:hover:border-accent/30 transition-all hover:shadow-lg text-center"
             >
               <h4 className="text-xl font-semibold mb-2 text-accent">💼 Business & Strategy</h4>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -123,14 +123,14 @@ function About() {
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={
                 timelineInView
-                  ? { opacity: 1, x: 0 }
-                  : { opacity: 0, x: -20 }
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 20 }
               }
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-accent/30 dark:hover:border-accent/30 transition-all hover:shadow-lg"
+              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-accent/30 dark:hover:border-accent/30 transition-all hover:shadow-lg text-center"
             >
               <h4 className="text-xl font-semibold mb-2 text-accent">📈 Finance & Investments</h4>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
