@@ -1,0 +1,19 @@
+{
+  "name": "Daniel Samarin - Portfolio",
+  "short_name": "DS Portfolio",
+  "description": "Personal portfolio website of Daniel Samarin",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366F1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
