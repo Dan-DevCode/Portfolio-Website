@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink, Github, Image } from 'lucide-react'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import ImageGallery from './ImageGallery'
 
 function ProjectCard({ project, index }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false)
 
   return (
     <motion.div
@@ -20,10 +22,29 @@ function ProjectCard({ project, index }) {
       <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent-light/0 group-hover:from-accent/5 group-hover:to-accent-light/5 transition-all duration-300 pointer-events-none rounded-2xl" />
       <div className="relative z-10">
       <div className="flex items-start justify-between mb-4">
-        <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors">
-          {project.title}
-        </h3>
+        <div className="flex-1">
+          <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors">
+            {project.title}
+          </h3>
+          {project.tagline && (
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 italic">
+              {project.tagline}
+            </p>
+          )}
+        </div>
         <div className="flex gap-2">
+          {project.displayImages && project.displayImages.length > 0 && (
+            <motion.button
+              onClick={() => setIsGalleryOpen(true)}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus-ring"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label={`View ${project.title} images`}
+              title="View project images"
+            >
+              <Image className="w-5 h-5" />
+            </motion.button>
+          )}
           {project.demo && (
             <motion.a
               href={project.demo}
@@ -66,6 +87,13 @@ function ProjectCard({ project, index }) {
         ))}
       </div>
       </div>
+      {project.displayImages && project.displayImages.length > 0 && (
+        <ImageGallery
+          images={project.displayImages}
+          isOpen={isGalleryOpen}
+          onClose={() => setIsGalleryOpen(false)}
+        />
+      )}
     </motion.div>
   )
 }

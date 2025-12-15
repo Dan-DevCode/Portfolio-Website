@@ -37,7 +37,7 @@ function Contact() {
       <div className="max-w-2xl mx-auto">
         <SectionHead
           title="Get In Touch"
-          subtitle="I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision."
+          subtitle="Whether it's internships, collaborations, or just trading ideas about AI and finance, feel free to reach out."
         />
 
         <motion.div

@@ -80,7 +80,7 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            AI Engineer • Innovator • Builder
+            AI Engineering Student • Building Data-Driven Products in Finance, Real Estate & Health
           </motion.p>
           <motion.p
             className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed text-balance"
@@ -88,7 +88,7 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            I design and build intelligent, scalable solutions that drive innovation and create meaningful impact.
+            I design and build intelligent, scalable systems — from AI investment dashboards to real-estate valuation tools and digital health concepts.
           </motion.p>
           <motion.div
             className="mb-12 max-w-2xl mx-auto"
