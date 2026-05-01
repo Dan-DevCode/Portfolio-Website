@@ -4,14 +4,14 @@ A modern, minimal, high-performance personal portfolio website built with React,
 
 ## Features
 
-- ✨ **Clean & Premium Design** - Minimal layout with generous white space and sharp typography
-- 📱 **Fully Responsive** - Optimized for screens from 360px to 1920px+
-- 🌓 **Light/Dark Theme** - Theme toggle with localStorage persistence
-- 🎭 **Smooth Animations** - Micro-interactions, hover states, parallax effects, and reveal-on-scroll
-- 🔄 **Page Transitions** - Smooth fade/slide transitions between sections
-- ♿ **Accessible** - WCAG AA compliant, keyboard navigable, visible focus rings
-- 🚀 **SEO Ready** - Meta tags, OpenGraph, and optimized for performance (Lighthouse 95+)
-- ⚡ **Fast Performance** - Gzip compression, lazy loading, and optimized assets
+-  **Clean & Premium Design** - Minimal layout with generous white space and sharp typography
+-  **Fully Responsive** - Optimized for screens from 360px to 1920px+
+-  **Light/Dark Theme** - Theme toggle with localStorage persistence
+-  **Smooth Animations** - Micro-interactions, hover states, parallax effects, and reveal-on-scroll
+-  **Page Transitions** - Smooth fade/slide transitions between sections
+-  **Accessible** - WCAG AA compliant, keyboard navigable, visible focus rings
+-  **SEO Ready** - Meta tags, OpenGraph, and optimized for performance (Lighthouse 95+)
+-  **Fast Performance** - Gzip compression, lazy loading, and optimized assets
 
 ## Tech Stack
 
@@ -116,8 +116,7 @@ npm run preview
    ```js
    colors: {
      accent: {
-       DEFAULT: '#6366F1', // Change this
-       // ...
+       DEFAULT: '#6366F1', 
      }
    }
    ```
@@ -166,7 +165,6 @@ The `netlify.toml` file is already configured.
    ```js
    export default defineConfig({
      base: '/your-repo-name/',
-     // ... rest of config
    })
    ```
 

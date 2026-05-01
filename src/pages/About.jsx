@@ -147,7 +147,7 @@ function About() {
               transition={{ delay: 0, duration: 0.5 }}
               className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-accent/30 dark:hover:border-accent/30 transition-all hover:shadow-lg text-center"
             >
-              <h4 className="text-xl font-semibold mb-2 text-accent">🤖 AI & Innovation</h4>
+              <h4 className="text-xl font-semibold mb-2 text-accent"> AI & Innovation</h4>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 Exploring modern AI techniques and how they can be applied to real-world problems in finance, real estate, and healthcare.
               </p>
@@ -162,7 +162,7 @@ function About() {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-accent/30 dark:hover:border-accent/30 transition-all hover:shadow-lg text-center"
             >
-              <h4 className="text-xl font-semibold mb-2 text-accent">💼 Business & Strategy</h4>
+              <h4 className="text-xl font-semibold mb-2 text-accent"> Business & Strategy</h4>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 Interested in business models, entrepreneurship, and how technology can unlock new value in traditional industries.
               </p>
@@ -177,7 +177,7 @@ function About() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-accent/30 dark:hover:border-accent/30 transition-all hover:shadow-lg text-center"
             >
-              <h4 className="text-xl font-semibold mb-2 text-accent">📈 Finance & Investments</h4>
+              <h4 className="text-xl font-semibold mb-2 text-accent"> Finance & Investments</h4>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 Curious about markets, portfolio construction, and long-term wealth building. A lot of my side projects are basically excuses to build tools I'd actually use myself.
               </p>
