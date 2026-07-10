@@ -4,52 +4,80 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+    background-color: #050505;
+    color-scheme: dark;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
   }
 
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
-    @apply transition-colors duration-300;
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.05) 0px, transparent 50%);
+    @apply bg-void text-white antialiased;
+    overflow-x: hidden;
   }
 
-  .dark body {
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.08) 0px, transparent 50%);
+  ::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: white;
   }
 
   * {
-    @apply border-gray-200 dark:border-gray-800;
+    border-color: rgba(255, 255, 255, 0.05);
   }
 }
 
 @layer utilities {
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.08];
   }
 
-  .text-balance {
-    text-wrap: balance;
+  .glow-blue {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
   }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-gray-800;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400 dark:bg-gray-500;
+  background: rgba(255, 255, 255, 0.2);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
