@@ -1,205 +1,133 @@
-# Personal Portfolio Website
+# Daniel Samarin — Portfolio
 
-A modern, minimal, high-performance personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion.
+Personal portfolio site for [Daniel Samarin](https://github.com/dsamarin-ai). Single-page React application with section-based navigation, deployed on Vercel.
 
-## Features
+## Stack
 
--  **Clean & Premium Design** - Minimal layout with generous white space and sharp typography
--  **Fully Responsive** - Optimized for screens from 360px to 1920px+
--  **Light/Dark Theme** - Theme toggle with localStorage persistence
--  **Smooth Animations** - Micro-interactions, hover states, parallax effects, and reveal-on-scroll
--  **Page Transitions** - Smooth fade/slide transitions between sections
--  **Accessible** - WCAG AA compliant, keyboard navigable, visible focus rings
--  **SEO Ready** - Meta tags, OpenGraph, and optimized for performance (Lighthouse 95+)
--  **Fast Performance** - Gzip compression, lazy loading, and optimized assets
+- React 18, TypeScript, Vite 5
+- Tailwind CSS, Framer Motion, Lenis
+- Vercel (hosting + serverless API for GitHub activity)
 
-## Tech Stack
+## Local development
 
-- **React 18** - UI library
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **React Router** - Client-side routing
-- **Lucide React** - Icon library
+**Requirements:** Node.js 18+
 
-## Getting Started
+```bash
+npm install
+npm run dev
+```
 
-### Prerequisites
+Open [http://localhost:5173](http://localhost:5173).
 
-- Node.js 18+ and npm/yarn/pnpm
-
-### Installation
-
-1. Clone the repository or navigate to the project directory:
-   ```bash
-   cd "Personal Portfolio Website"
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open your browser and visit `http://localhost:5173`
-
-### Build for Production
+**Production build:**
 
 ```bash
 npm run build
-```
-
-The optimized production build will be in the `dist` directory.
-
-### Preview Production Build
-
-```bash
 npm run preview
 ```
 
-## Project Structure
+Output is written to `dist/`.
+
+## Project layout
 
 ```
-├── public/
-│   ├── favicon.svg
-│   ├── manifest.webmanifest
-│   ├── robots.txt
-│   └── og.png (create your own 1200x630 image)
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Footer.jsx
-│   │   ├── ThemeToggle.jsx
-│   │   ├── ProjectCard.jsx
-│   │   ├── SectionHead.jsx
-│   │   └── AnimatedLink.jsx
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── Projects.jsx
-│   │   ├── About.jsx
-│   │   ├── Contact.jsx
-│   │   └── NotFound.jsx
-│   ├── styles/
-│   │   └── global.css
-│   ├── App.jsx
-│   └── main.jsx
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-├── vercel.json
-└── netlify.toml
+public/                 Static assets (images, favicon, resume PDF)
+src/
+  data/content.ts       Site copy, projects, skills, contact info
+  sections/             Page sections (Hero, Projects, About, etc.)
+  components/           UI, layout, and effects
+  hooks/                Scroll, mouse, and interaction hooks
+api/                    Vercel serverless routes
+lib/                    Shared server utilities for API routes
 ```
 
-## Customization
+Most editable content lives in `src/data/content.ts`. Section components in `src/sections/` control layout and presentation.
 
-### Update Content
+## Updating your resume (PDF)
 
-1. **Personal Information**: Edit the content in each page component:
-   - `src/pages/Home.jsx` - Hero section content
-   - `src/pages/About.jsx` - Bio, skills, and timeline
-   - `src/pages/Projects.jsx` - Project data array
-   - `src/pages/Contact.jsx` - Contact information
+The **Download CV** button in the hero section links to a PDF in the `public/` folder.
 
-2. **Social Links**: Update links in:
-   - `src/components/Footer.jsx` - Footer social links
-   - `src/pages/Contact.jsx` - Contact methods
+### Steps
 
-3. **Meta Tags**: Update SEO information in `index.html`
+1. Export or save your resume as a PDF.
 
-4. **Colors**: Modify the accent color in `tailwind.config.js`:
-   ```js
-   colors: {
-     accent: {
-       DEFAULT: '#6366F1', 
-     }
-   }
+2. Place the file in the project `public/` folder:
+   ```
+   public/Daniel_Samarin_Resume.pdf
    ```
 
-5. **CV/Resume**: Add your resume PDF to the `public` folder and update the link in `src/pages/Home.jsx`
+3. Confirm the filename matches `src/data/content.ts`:
+   ```ts
+   resume: '/Daniel_Samarin_Resume.pdf',
+   ```
 
-### Create og.png
+4. If you use a different filename, update that line to match. The path must start with `/` and match the file in `public/`.
 
-Create a 1200x630px image for social media previews and save it as `public/og.png`.
+5. Test locally:
+   ```bash
+   npm run dev
+   ```
+   Click **Download CV** in the hero section. The file should download or open in a new tab.
+
+6. Commit the new PDF and push to deploy on Vercel:
+   ```bash
+   git add public/Daniel_Samarin_Resume.pdf
+   git commit -m "Update resume"
+   git push
+   ```
+
+**Note:** Files in `public/` are served from the site root. A file at `public/Daniel_Samarin_Resume.pdf` is available at `yoursite.com/Daniel_Samarin_Resume.pdf`.
+
+### Profile photo
+
+Same process for the headshot:
+
+```
+public/Profile Picture.jpg
+```
+
+Referenced in `src/data/content.ts` as `profileImage: '/Profile Picture.jpg'`.
+
+## Updating site content
+
+| What to change | File |
+|----------------|------|
+| Name, email, links, resume path, roles | `src/data/content.ts` → `personal` |
+| Projects | `src/data/content.ts` → `projects` |
+| Skills | `src/data/content.ts` → `skills` |
+| Career timeline | `src/data/content.ts` → `milestones` |
+| Page title and meta tags | `index.html` |
+
+## Environment variables (Vercel)
+
+Set these in the Vercel project dashboard under **Settings → Environment Variables**:
+
+| Variable | Purpose |
+|----------|---------|
+| `GITHUB_USERNAME` | GitHub username for the activity heatmap (`dsamarin-ai`) |
+
+Optional:
+
+| Variable | Default |
+|----------|---------|
+| `RATE_LIMIT_MAX_REQUESTS` | `30` |
+| `RATE_LIMIT_WINDOW_MS` | `60000` |
 
 ## Deployment
 
-### Deploy to Vercel
+The site is configured for Vercel. On push to the connected branch, Vercel runs `npm install` and `npm run build`, then serves the `dist` output.
 
-1. Push your code to GitHub
-2. Import your repository in [Vercel](https://vercel.com)
-3. Vercel will automatically detect the Vite configuration
-4. Deploy!
+`vercel.json` contains a single SPA rewrite so client-side routes resolve to `index.html`. API routes in `api/` are handled separately by Vercel.
 
-The `vercel.json` file is already configured for client-side routing.
+## Scripts
 
-### Deploy to Netlify
-
-1. Push your code to GitHub
-2. Import your repository in [Netlify](https://netlify.com)
-3. Set build command: `npm run build`
-4. Set publish directory: `dist`
-5. Deploy!
-
-The `netlify.toml` file is already configured.
-
-### Deploy to GitHub Pages
-
-1. Install `gh-pages`:
-   ```bash
-   npm install --save-dev gh-pages
-   ```
-
-2. Add to `package.json` scripts:
-   ```json
-   "predeploy": "npm run build",
-   "deploy": "gh-pages -d dist"
-   ```
-
-3. Update `vite.config.js`:
-   ```js
-   export default defineConfig({
-     base: '/your-repo-name/',
-   })
-   ```
-
-4. Deploy:
-   ```bash
-   npm run deploy
-   ```
-
-### Deploy to StackBlitz
-
-1. Push your code to GitHub
-2. Go to [StackBlitz](https://stackblitz.com)
-3. Click "New Project" → "Import from GitHub"
-4. Enter your repository URL
-5. StackBlitz will automatically set up the environment
-
-## Performance Tips
-
-- Images: Use WebP format and lazy loading
-- Fonts: Already optimized with preload in `index.html`
-- Code splitting: Already configured in `vite.config.js`
-- Compression: Gzip compression via `vite-plugin-compression`
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build locally |
+| `npm run audit:check` | Check dependencies for known vulnerabilities |
 
 ## License
 
-This project is open source and available under the MIT License.
-
-## Contact
-
-For questions or suggestions, feel free to reach out through the contact page on the website.
-
+MIT

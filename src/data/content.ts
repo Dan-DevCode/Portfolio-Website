@@ -3,7 +3,7 @@ export const personal = {
   email: 'danielsamarin.ai@gmail.com',
   github: 'https://github.com/dsamarin-ai',
   linkedin: 'https://www.linkedin.com/in/daniel--samarin/',
-  resume: '/Daniel-Samarin_Resume.pdf',
+  resume: '/Daniel_Samarin_Resume.pdf',
   profileImage: '/Profile Picture.jpg',
   quote: 'The man who fears God fears nothing else',
   roles: [
