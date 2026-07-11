@@ -1,13 +1,12 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { checkRateLimit, getClientIp } from '../lib/rate-limit'
+import { checkRateLimit, getClientIp } from '../lib/rate-limit.js'
 import {
   validateGitHubUsername,
   parseGitHubContributions,
   getAllowedUpstreamUrl,
   GENERIC_ERROR,
-} from '../lib/security'
+} from '../lib/security.js'
 
-const SECURITY_HEADERS: Record<string, string> = {
+const SECURITY_HEADERS = {
   'Cache-Control': 'no-store, no-cache, must-revalidate',
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'DENY',
@@ -16,19 +15,19 @@ const SECURITY_HEADERS: Record<string, string> = {
   'Cross-Origin-Resource-Policy': 'same-site',
 }
 
-function applySecurityHeaders(res: VercelResponse) {
+function applySecurityHeaders(res) {
   for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
     res.setHeader(key, value)
   }
 }
 
-function applyRateLimitHeaders(res: VercelResponse, result: ReturnType<typeof checkRateLimit>) {
+function applyRateLimitHeaders(res, result) {
   res.setHeader('X-RateLimit-Limit', String(result.limit))
   res.setHeader('X-RateLimit-Remaining', String(result.remaining))
   res.setHeader('X-RateLimit-Reset', String(Math.ceil(result.resetAt / 1000)))
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req, res) {
   applySecurityHeaders(res)
 
   if (req.method !== 'GET') {
