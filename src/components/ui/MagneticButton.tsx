@@ -10,6 +10,7 @@ interface MagneticButtonProps {
   target?: string
   rel?: string
   glowColor?: string
+  style?: React.CSSProperties
 }
 
 interface Ripple {
@@ -27,6 +28,7 @@ export default function MagneticButton({
   target,
   rel,
   glowColor = 'rgba(59,130,246,0.4)',
+  style,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement & HTMLButtonElement>(null)
   const [hovering, setHovering] = useState(false)
@@ -88,7 +90,7 @@ export default function MagneticButton({
   }
 
   const motionProps = {
-    style: { x, y, rotateX, rotateY, scale, transformStyle: 'preserve-3d' as const },
+    style: { x, y, rotateX, rotateY, scale, transformStyle: 'preserve-3d' as const, ...style },
     onMouseMove: handleMove,
     onMouseEnter: () => setHovering(true),
     onMouseLeave: handleLeave,

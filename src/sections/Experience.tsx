@@ -24,7 +24,7 @@ export default function Experience() {
         <RevealOnScroll>
           <div className="mb-20">
             <span className="text-xs font-mono tracking-[0.3em] uppercase text-accent-cyan/60 mb-4 block">
-              04 — Journey
+              05 — Journey
             </span>
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
               The timeline

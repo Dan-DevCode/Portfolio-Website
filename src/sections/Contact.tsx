@@ -35,7 +35,7 @@ export default function Contact() {
         <RevealOnScroll>
           <div className="text-center mb-16">
             <span className="text-xs font-mono tracking-[0.3em] uppercase text-accent-cyan/60 mb-4 block">
-              05 — Contact
+              06 — Contact
             </span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6">
               Let's build
@@ -45,7 +45,7 @@ export default function Contact() {
               </span>
             </h2>
             <p className="text-white/40 max-w-lg mx-auto">
-              Internships, collaborations, or trading ideas about AI and finance — I'm all ears.
+              Internships, collaborations, or trading ideas about AI, I'm all ears.
             </p>
           </div>
         </RevealOnScroll>

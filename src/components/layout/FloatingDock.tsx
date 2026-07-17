@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { navLinks } from '../../data/content'
-import { Home, Briefcase, UserRound, Network, Clock, Mail } from 'lucide-react'
+import { Home, Briefcase, UserRound, Network, Workflow, Clock, Mail } from 'lucide-react'
 
 const iconMap = {
   home: Home,
   layers: Briefcase,
   user: UserRound,
   orbit: Network,
+  workflow: Workflow,
   timeline: Clock,
   mail: Mail,
 } as const

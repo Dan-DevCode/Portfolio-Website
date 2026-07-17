@@ -221,6 +221,7 @@ export const navLinks = [
   { label: 'Work', href: '#projects', icon: 'layers' },
   { label: 'About', href: '#about', icon: 'user' },
   { label: 'Skills', href: '#skills', icon: 'orbit' },
+  { label: 'Build', href: '#workflow', icon: 'workflow' },
   { label: 'Journey', href: '#experience', icon: 'timeline' },
   { label: 'Contact', href: '#contact', icon: 'mail' },
 ]

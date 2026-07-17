@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react'
 
 export type AmbientMood = 'default' | 'aurora' | 'neural' | 'cosmic' | 'electric' | 'ember'
-export type ScrollZone = 'hero' | 'projects' | 'about' | 'skills' | 'experience' | 'contact'
+export type ScrollZone = 'hero' | 'projects' | 'about' | 'skills' | 'workflow' | 'experience' | 'contact'
 
 interface AmbientState {
   mood: AmbientMood

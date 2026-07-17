@@ -25,6 +25,10 @@ export default {
         float: 'float 6s ease-in-out infinite',
         pulseGlow: 'pulseGlow 4s ease-in-out infinite',
         shimmer: 'shimmer 3s linear infinite',
+        nodeDrift: 'nodeDrift 8s ease-in-out infinite',
+        linePulse: 'linePulse 4s ease-in-out infinite',
+        lineFlow: 'lineFlow 2.5s ease-in-out infinite',
+        particleDrift: 'particleDrift 12s ease-in-out infinite',
       },
       keyframes: {
         aurora: {
@@ -42,6 +46,23 @@ export default {
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
+        },
+        nodeDrift: {
+          '0%, 100%': { transform: 'translate(0px, 0px)' },
+          '33%': { transform: 'translate(2px, -3px)' },
+          '66%': { transform: 'translate(-2px, 2px)' },
+        },
+        linePulse: {
+          '0%, 100%': { opacity: '0.25' },
+          '50%': { opacity: '0.55' },
+        },
+        lineFlow: {
+          '0%': { strokeDashoffset: '24' },
+          '100%': { strokeDashoffset: '0' },
+        },
+        particleDrift: {
+          '0%, 100%': { transform: 'translate(0, 0)', opacity: '0.15' },
+          '50%': { transform: 'translate(6px, -8px)', opacity: '0.45' },
         },
       },
       backgroundImage: {

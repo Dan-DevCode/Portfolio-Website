@@ -1,10 +1,12 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView } from 'framer-motion'
 import { projects, type Project } from '../data/content'
+import { projectWorkflowMap } from '../data/workflow'
+import { useWorkflow } from '../context/WorkflowContext'
 import RevealOnScroll from '../components/ui/RevealOnScroll'
 import MagneticButton from '../components/ui/MagneticButton'
 import ProjectVisual from '../components/ui/ProjectVisual'
-import { ExternalLink, Github, Check } from 'lucide-react'
+import { ExternalLink, Github, Check, GitBranch } from 'lucide-react'
 
 function AnimatedMetric({ value, label, color }: { value: string; label: string; color: string }) {
   const ref = useRef(null)
@@ -49,6 +51,8 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
   const ref = useRef<HTMLDivElement>(null)
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
+  const { openProjectWorkflow } = useWorkflow()
+  const hasWorkflow = !!projectWorkflowMap[project.id]
 
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), {
     stiffness: 150,
@@ -173,7 +177,22 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
             ))}
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
+            {hasWorkflow && (
+              <MagneticButton
+                onClick={() => openProjectWorkflow(project.id)}
+                glowColor={`${project.color}50`}
+                className="px-5 py-2.5 rounded-full border text-sm font-medium flex items-center gap-2"
+                style={{
+                  borderColor: `${project.color}40`,
+                  color: project.color,
+                  background: `${project.color}10`,
+                }}
+              >
+                <GitBranch className="w-4 h-4" />
+                View workflow behind this project
+              </MagneticButton>
+            )}
             {project.demo && (
               <MagneticButton
                 href={project.demo}

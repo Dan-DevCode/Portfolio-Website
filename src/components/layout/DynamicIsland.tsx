@@ -8,6 +8,7 @@ const zoneLabels: Record<string, string> = {
   projects: 'Work',
   about: 'About',
   skills: 'Skills',
+  workflow: 'Build',
   experience: 'Journey',
   contact: 'Contact',
 }

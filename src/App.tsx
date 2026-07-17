@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { AmbientProvider } from './context/AmbientContext'
+import { WorkflowProvider } from './context/WorkflowContext'
 import { useLenis } from './hooks/useLenis'
 import { useScrollZone } from './hooks/useScrollZone'
 import AuroraBackground from './components/effects/AuroraBackground'
@@ -17,6 +18,7 @@ import Hero from './sections/Hero'
 import Projects from './sections/Projects'
 import About from './sections/About'
 import Skills from './sections/Skills'
+import HowIBuild from './sections/HowIBuild'
 import Experience from './sections/Experience'
 import Contact from './sections/Contact'
 
@@ -47,6 +49,7 @@ function AppShell() {
         <Projects />
         <About />
         <Skills />
+        <HowIBuild />
         <Experience />
         <Contact />
       </main>
@@ -59,7 +62,9 @@ function AppShell() {
 export default function App() {
   return (
     <AmbientProvider>
-      <AppShell />
+      <WorkflowProvider>
+        <AppShell />
+      </WorkflowProvider>
     </AmbientProvider>
   )
 }

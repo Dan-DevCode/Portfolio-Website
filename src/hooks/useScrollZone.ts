@@ -6,6 +6,7 @@ const zones: { id: ScrollZone; el: string }[] = [
   { id: 'projects', el: '#projects' },
   { id: 'about', el: '#about' },
   { id: 'skills', el: '#skills' },
+  { id: 'workflow', el: '#workflow' },
   { id: 'experience', el: '#experience' },
   { id: 'contact', el: '#contact' },
 ]

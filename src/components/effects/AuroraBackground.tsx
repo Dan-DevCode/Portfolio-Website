@@ -16,6 +16,7 @@ const zoneTints: Record<string, string> = {
   projects: 'rgba(168,85,247,0.04)',
   about: 'rgba(34,211,238,0.03)',
   skills: 'rgba(99,102,241,0.04)',
+  workflow: 'rgba(59,130,246,0.04)',
   experience: 'rgba(59,130,246,0.03)',
   contact: 'rgba(34,211,238,0.05)',
 }
